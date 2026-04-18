@@ -1,7 +1,3 @@
-Here is the complete, single-file HTML solution. It uses Tailwind CSS (via CDN) for the layout, styling, and color scheme, and includes a lightweight JavaScript snippet to highlight the active section in the sidebar as you scroll. 
-
-Save the code below as an `.html` file (e.g., `index.html`) and open it in any modern web browser.
-
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
