@@ -1,0 +1,343 @@
+Here is the complete, single-file HTML solution. It uses Tailwind CSS (via CDN) for the layout, styling, and color scheme, and includes a lightweight JavaScript snippet to highlight the active section in the sidebar as you scroll. 
+
+Save the code below as an `.html` file (e.g., `index.html`) and open it in any modern web browser.
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdealShea | Premium Unrefined Shea Butter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F4DBC2',
+                        smoky: '#1C1C1C',
+                        olive: '#4B4F3D',
+                        amber: '#DD975E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F4DBC2; }
+        ::-webkit-scrollbar-thumb { background: #4B4F3D; border-radius: 4px; }
+        .active-link { color: #DD975E !important; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-ivory text-smoky flex">
+
+    <nav class="fixed top-0 left-0 h-screen w-64 bg-olive text-ivory p-8 flex flex-col justify-between shadow-2xl z-50">
+        <div>
+            <h1 class="text-3xl font-bold text-amber tracking-tight mb-12">IdealShea<span class="text-ivory">.</span></h1>
+            <ul class="space-y-6 text-sm uppercase tracking-wider" id="nav-menu">
+                <li><a href="#home" class="nav-link hover:text-amber transition-colors">Home</a></li>
+                <li><a href="#tech-specs" class="nav-link hover:text-amber transition-colors">Tech Specs</a></li>
+                <li><a href="#traceability" class="nav-link hover:text-amber transition-colors">Traceability</a></li>
+                <li><a href="#compliance" class="nav-link hover:text-amber transition-colors">Compliance</a></li>
+                <li><a href="#sustainability" class="nav-link hover:text-amber transition-colors">Sustainability</a></li>
+                <li><a href="#portal" class="nav-link hover:text-amber transition-colors">Client Portal</a></li>
+                <li><a href="#about" class="nav-link hover:text-amber transition-colors">About Us</a></li>
+            </ul>
+        </div>
+        <a href="#procurement" class="block w-full bg-amber text-smoky text-center font-bold py-4 rounded hover:bg-ivory transition-colors duration-300 shadow-lg">
+            Request Quote
+        </a>
+    </nav>
+
+    <main class="ml-64 w-full">
+
+        <section id="home" class="min-h-screen flex items-center px-16 relative overflow-hidden">
+            <div class="max-w-4xl relative z-10">
+                <div class="inline-block px-3 py-1 bg-olive text-ivory text-xs font-bold uppercase tracking-widest rounded mb-6">Grade A Unrefined</div>
+                <h2 class="text-6xl font-bold leading-tight mb-6">Industrial Supply of Premium Shea Butter.</h2>
+                <p class="text-xl text-olive mb-10 max-w-2xl leading-relaxed">
+                    Sourced directly from the premium shea belt of Northern Nigeria. Engineered for global cosmetic formulators and food processors demanding absolute purity and tracebility.
+                </p>
+                <div class="flex space-x-8 text-sm font-semibold border-l-4 border-amber pl-6 py-2">
+                    <div>
+                        <span class="block text-2xl font-bold text-olive">75-85%</span>
+                        Fatty Acid Content
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold text-olive">&lt;0.5%</span>
+                        Moisture Levels
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-amber/20 to-transparent"></div>
+        </section>
+
+        <section id="tech-specs" class="min-h-screen py-24 px-16 bg-white">
+            <h3 class="text-4xl font-bold mb-12 border-b-2 border-olive pb-4 inline-block">Technical Specifications</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-ivory p-8 rounded-lg shadow-sm border border-olive/10">
+                    <h4 class="text-xl font-bold mb-6 text-olive">Chemical Parameters</h4>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between border-b border-olive/20 pb-2">
+                            <span class="font-semibold">INCI Name</span>
+                            <span>Butyrospermum Parkii</span>
+                        </li>
+                        <li class="flex justify-between border-b border-olive/20 pb-2">
+                            <span class="font-semibold">Free Fatty Acid (FFA)</span>
+                            <span>Max 5.0%</span>
+                        </li>
+                        <li class="flex justify-between border-b border-olive/20 pb-2">
+                            <span class="font-semibold">Peroxide Value</span>
+                            <span>Max 10.0 meq/kg</span>
+                        </li>
+                        <li class="flex justify-between border-b border-olive/20 pb-2">
+                            <span class="font-semibold">Iodine Value</span>
+                            <span>50 - 72 g/100g</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col justify-between">
+                    <div class="bg-olive text-ivory p-8 rounded-lg shadow-md mb-6 hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold mb-2">Bulk Logistics</h4>
+                        <p class="text-sm opacity-90 mb-4">Export-ready packaging designed for international freight preservation.</p>
+                        <div class="flex space-x-4">
+                            <span class="bg-ivory text-smoky px-3 py-1 rounded text-sm font-bold">25kg Buckets</span>
+                            <span class="bg-ivory text-smoky px-3 py-1 rounded text-sm font-bold">200kg Drums</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="flex items-center justify-center p-4 border-2 border-olive text-olive font-bold rounded hover:bg-olive hover:text-ivory transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download TDS
+                        </button>
+                        <button class="flex items-center justify-center p-4 border-2 border-olive text-olive font-bold rounded hover:bg-olive hover:text-ivory transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download COA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="traceability" class="min-h-screen py-24 px-16">
+            <div class="max-w-3xl mb-16">
+                <h3 class="text-4xl font-bold mb-4">Forestry to Factory</h3>
+                <p class="text-lg text-olive">Uncompromising supply chain integrity. We eliminate middlemen to guarantee freshness, batch tracking, and direct quality control from the source.</p>
+            </div>
+
+            <div class="relative border-l-4 border-amber ml-6 space-y-12">
+                <div class="relative pl-10">
+                    <div class="absolute w-6 h-6 bg-olive rounded-full -left-[15px] top-1 border-4 border-ivory"></div>
+                    <h4 class="text-2xl font-bold mb-2">1. Origin Collection</h4>
+                    <p class="text-smoky/80">Wild shea nuts are gathered directly from the premium shea belt of the Kaduna/Niger axis.</p>
+                </div>
+                <div class="relative pl-10">
+                    <div class="absolute w-6 h-6 bg-olive rounded-full -left-[15px] top-1 border-4 border-ivory"></div>
+                    <h4 class="text-2xl font-bold mb-2">2. Processing & Extraction</h4>
+                    <p class="text-smoky/80">Nuts undergo rigorous sorting, drying, and mechanical cold-pressing in our hygienic facilities to extract pure butter without chemical solvents.</p>
+                </div>
+                <div class="relative pl-10">
+                    <div class="absolute w-6 h-6 bg-amber rounded-full -left-[15px] top-1 border-4 border-ivory shadow-[0_0_10px_#DD975E]"></div>
+                    <h4 class="text-2xl font-bold mb-2">3. B2B Export & Tracking</h4>
+                    <p class="text-smoky/80">Each batch is assigned a digital identifier, allowing global buyers to trace their bulk order back to the extraction date and origin zone.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="compliance" class="min-h-screen py-24 px-16 bg-white">
+            <h3 class="text-4xl font-bold mb-12 text-center">Global Compliance Standards</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-ivory rounded hover:shadow-xl transition-shadow bg-ivory/30">
+                    <div class="w-12 h-12 bg-amber rounded flex items-center justify-center mb-6 text-white font-bold text-xl">1</div>
+                    <h4 class="text-xl font-bold mb-3">Hygiene & Filtering</h4>
+                    <p class="text-sm">Advanced physical filtering processes to remove impurities, adhering strictly to international cosmetic and food-grade hygiene protocols.</p>
+                </div>
+                <div class="p-8 border border-ivory rounded hover:shadow-xl transition-shadow bg-ivory/30">
+                    <div class="w-12 h-12 bg-amber rounded flex items-center justify-center mb-6 text-white font-bold text-xl">2</div>
+                    <h4 class="text-xl font-bold mb-3">Export Readiness</h4>
+                    <p class="text-sm">Comprehensive customs documentation, HACCP alignment, and phytosanitary certificates provided with every global shipment.</p>
+                </div>
+                <div class="p-8 border border-ivory rounded hover:shadow-xl transition-shadow bg-ivory/30">
+                    <div class="w-12 h-12 bg-amber rounded flex items-center justify-center mb-6 text-white font-bold text-xl">3</div>
+                    <h4 class="text-xl font-bold mb-3">Lab Verification</h4>
+                    <p class="text-sm">Routine microbiological testing for pathogens and heavy metals to ensure risk-free procurement for major brands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sustainability" class="min-h-screen py-24 px-16 bg-olive text-ivory flex items-center">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-4xl font-bold mb-6 text-amber">Empowering the Source</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Ethical trade isn't a marketing angle; it's our operational foundation. By removing intermediary brokers, we ensure fair, direct compensation to the local women and cooperatives managing the harvest.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Our processing methods remain eco-friendly, protecting the natural parklands and ensuring the shea tree populations thrive for generations.
+                    </p>
+                </div>
+                <div class="bg-ivory text-smoky p-10 rounded-lg relative">
+                    <svg class="absolute top-4 left-4 w-12 h-12 text-amber opacity-30" fill="currentColor" viewBox="0 0 32 32"><path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2h2V8h-2zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2h2V8h-2z"/></svg>
+                    <p class="text-xl font-bold italic relative z-10 pt-6">
+                        "The strength of the global cosmetics industry begins with the economic empowerment of the women at the origin of the supply chain."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portal" class="min-h-screen py-24 px-16 flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-white opacity-50"></div>
+            <div class="relative z-10 w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl rounded-xl overflow-hidden">
+                <div class="bg-olive p-12 text-ivory flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold mb-4">Enterprise Portal</h3>
+                    <p class="mb-8 text-sm opacity-90">Streamline your procurement. Access real-time shipment tracking, one-click reordering, and batch-specific lab reports.</p>
+                    <ul class="space-y-3 text-sm font-semibold text-amber">
+                        <li>✓ Order History & Invoices</li>
+                        <li>✓ Live Logistics Tracking</li>
+                        <li>✓ Automated COA Access</li>
+                    </ul>
+                </div>
+                <div class="bg-ivory p-12 flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold mb-6">Partner Login</h4>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Corporate Email</label>
+                            <input type="email" class="w-full p-3 border border-olive/30 rounded focus:outline-none focus:border-amber bg-white" placeholder="procurement@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Password</label>
+                            <input type="password" class="w-full p-3 border border-olive/30 rounded focus:outline-none focus:border-amber bg-white" placeholder="••••••••">
+                        </div>
+                        <button type="button" class="w-full bg-smoky text-ivory font-bold py-3 rounded hover:bg-olive transition-colors mt-4">Access Dashboard</button>
+                    </form>
+                    <p class="text-center text-sm mt-6">New enterprise buyer? <a href="#procurement" class="text-amber font-bold hover:underline">Request Access</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="min-h-screen py-24 px-16 bg-white flex flex-col justify-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-5xl font-bold mb-6 leading-tight">Bridging Local Resources with Global Markets.</h3>
+                </div>
+                <div>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Our operational vision is simple: to establish an unbroken, transparent link between the premium agricultural resources of Nigeria and the rigorous demands of international trade. 
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Built on the core values of transparency, absolute quality, and reliability, we are modernizing the industrial supply of raw materials while preserving the natural integrity of the product.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="procurement" class="min-h-screen py-24 px-16 bg-ivory">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-4 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-8">Start the Conversation.</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="font-bold text-olive uppercase tracking-wider text-sm mb-1">Corporate Headquarters</h5>
+                                <p>Lagos State, Nigeria</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-olive uppercase tracking-wider text-sm mb-1">International Trade Desk</h5>
+                                <p class="text-lg font-semibold text-amber">+234 (0) XX XXX XXXX</p>
+                                <p class="text-smoky font-semibold">procurement@idealshea.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-sm text-olive">
+                        <p>© 2026 IdealShea. All rights reserved.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 bg-white p-10 rounded-xl shadow-lg border border-olive/10">
+                    <h4 class="text-2xl font-bold mb-8 pb-4 border-b border-ivory">B2B Procurement Inquiry</h4>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2">Company Name</label>
+                                <input type="text" class="w-full p-3 border border-ivory rounded focus:outline-none focus:border-amber bg-ivory/20">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2">Contact Name</label>
+                                <input type="text" class="w-full p-3 border border-ivory rounded focus:outline-none focus:border-amber bg-ivory/20">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2">Desired Volume (Metric Tons)</label>
+                                <select class="w-full p-3 border border-ivory rounded focus:outline-none focus:border-amber bg-ivory/20 appearance-none">
+                                    <option>Sample Request (&lt;25kg)</option>
+                                    <option>1 - 5 MT</option>
+                                    <option>5 - 20 MT</option>
+                                    <option>20+ MT (FCL)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2">End-Use Application</label>
+                                <select class="w-full p-3 border border-ivory rounded focus:outline-none focus:border-amber bg-ivory/20 appearance-none">
+                                    <option>Cosmetics & Skincare</option>
+                                    <option>Food Processing / CBE</option>
+                                    <option>Pharmaceuticals</option>
+                                    <option>Wholesale Distribution</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Destination Port / Logistics Needs</label>
+                            <input type="text" class="w-full p-3 border border-ivory rounded focus:outline-none focus:border-amber bg-ivory/20" placeholder="e.g., CIF Rotterdam">
+                        </div>
+
+                        <button type="button" class="bg-amber text-smoky font-bold text-lg py-4 px-8 rounded hover:bg-olive hover:text-ivory transition-colors w-full shadow-md mt-4">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll("#nav-menu a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((a) => {
+                a.classList.remove("active-link");
+                if (a.getAttribute("href").includes(current)) {
+                    a.classList.add("active-link");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
